@@ -12,11 +12,11 @@ type SummaryBarProps = {
 
 export default function SummaryBar({ itemCount, totalValue }: SummaryBarProps) {
   return (
-    <div className="flex justify-center md:justify-end my-4 p-4 rounded-xl bg-white shadow-sm border border-gray-100">
-      <span className="text-sm md:text-base text-gray-700">
+    <div className="flex justify-center md:justify-end p-4 rounded-xl bg-white border border-slate-200 shadow-sm w-full lg:w-auto">
+      <span className="text-sm md:text-base text-slate-700">
         Showing <span className="font-bold">{itemCount} items</span>
-        <span className="mx-3 text-gray-300">|</span>
-        Total Stock Value: <span className="font-bold">{formatCurrency(totalValue)}</span>
+        <span className="mx-3 text-slate-300">|</span>
+        Total Stock Value: <span className="font-bold text-primary">{formatCurrency(totalValue)}</span>
       </span>
     </div>
   )

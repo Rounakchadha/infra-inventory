@@ -7,6 +7,10 @@
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase'
+import { Input } from '@/components/ui/input'
+import { Label } from '@/components/ui/label'
+import { Button } from '@/components/ui/button'
+import { Loader2 } from 'lucide-react'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -32,22 +36,52 @@ export default function LoginPage() {
     }
   }
 
-  // TODO: Gemini — implement clean centered login card UI:
-  // - White card, centered on screen (both vertically and horizontally)
-  // - Heading: "Admin Login"
-  // - Email input with label
-  // - Password input with label
-  // - "Log In" button (full width, primary style, shows loading state)
-  // - Error message area below button (red text)
   return (
-    <main className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8 w-full max-w-sm">
-        <h1 className="text-2xl font-bold text-gray-900 mb-6">Admin Login</h1>
-        <form onSubmit={handleLogin}>
-          {/* Email input */}
-          {/* Password input */}
-          {/* Submit button */}
-          {error && <p className="text-red-600 text-sm mt-3">{error}</p>}
+    <main className="min-h-screen flex items-center justify-center px-4">
+      <div className="bg-white/95 rounded-2xl shadow-sm border border-slate-200 p-8 w-full max-w-sm backdrop-blur-sm">
+        <h1 className="text-2xl font-bold text-slate-900 mb-1 text-center">Admin Login</h1>
+        <p className="text-sm text-slate-600 text-center mb-6">Sign in to manage inventory records.</p>
+        
+        <form onSubmit={handleLogin} className="space-y-4">
+          <div className="space-y-2">
+            <Label htmlFor="email">Email</Label>
+            <Input
+              id="email"
+              type="email"
+              placeholder="admin@example.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              className="h-12"
+            />
+          </div>
+          
+          <div className="space-y-2">
+            <Label htmlFor="password">Password</Label>
+            <Input
+              id="password"
+              type="password"
+              placeholder="••••••••"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              className="h-12"
+            />
+          </div>
+
+          <Button 
+            type="submit" 
+            disabled={loading}
+            className="w-full h-12 mt-4 bg-primary hover:bg-primary/90 text-primary-foreground text-base"
+          >
+            {loading ? <Loader2 className="mr-2 h-5 w-5 animate-spin" /> : 'Log In'}
+          </Button>
+
+          {error && (
+            <div className="mt-4 p-3 bg-red-50 text-red-600 border border-red-100 rounded-lg text-sm text-center">
+              {error}
+            </div>
+          )}
         </form>
       </div>
     </main>

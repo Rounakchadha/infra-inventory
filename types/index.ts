@@ -41,3 +41,15 @@ export type InventoryItemFormData = {
   quantity: number | ''
   unit_price: number | ''
 }
+
+export type AuditLog = {
+  id: string
+  table_name: string
+  record_id: string | null
+  action: 'INSERT' | 'UPDATE' | 'DELETE'
+  actor_user_id: string | null
+  actor_email: string | null
+  changed_at: string
+  old_data: Record<string, unknown> | null
+  new_data: Record<string, unknown> | null
+}

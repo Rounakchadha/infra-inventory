@@ -45,6 +45,8 @@ infra-inventory/
 │   │
 │   └── admin/
 │       ├── page.tsx                # Admin dashboard
+│       ├── audit/
+│       │   └── page.tsx            # Admin audit history (who changed what)
 │       ├── items/
 │       │   ├── add/
 │       │   │   └── page.tsx        # Add new inventory item
@@ -116,6 +118,10 @@ The main page. Anyone with the link can use this.
 
 ### `/admin/categories` — Manage Categories
 - List of categories with add and delete
+
+### `/admin/audit` — Audit Logs
+- Timeline of create/update/delete actions
+- Shows when a change happened, who did it, and which record/table was affected
 
 ### `/(auth)/login` — Admin Login
 - Email and password login via Supabase Auth
@@ -234,7 +240,6 @@ Open http://localhost:3000
 These are intentionally left out to keep the app simple. They can be added later:
 
 - Low stock alerts (minimum quantity threshold per item)
-- Stock movement history / audit log
 - Item images
 - Multiple warehouse locations
 - PDF export

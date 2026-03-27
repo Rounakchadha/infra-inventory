@@ -54,10 +54,10 @@ export default function ExportButtons({ items }: ExportButtonsProps) {
   }
 
   return (
-    <div className="flex flex-col sm:flex-row gap-3">
+    <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
       <Button
         onClick={handleExcelExport}
-        className="bg-indigo-600 hover:bg-indigo-700 text-white h-[44px] px-5 text-base"
+        className="bg-primary hover:bg-primary/90 text-primary-foreground h-[44px] px-5 text-base w-full sm:w-auto"
       >
         <Download className="mr-2 h-4 w-4" />
         Download Excel
@@ -65,7 +65,7 @@ export default function ExportButtons({ items }: ExportButtonsProps) {
       <Button
         onClick={handleCsvExport}
         variant="outline"
-        className="border-gray-300 text-gray-700 hover:bg-gray-50 h-[44px] px-5 text-base"
+        className="border-slate-300 text-slate-700 hover:bg-slate-100 h-[44px] px-5 text-base w-full sm:w-auto"
       >
         <Download className="mr-2 h-4 w-4" />
         Download CSV

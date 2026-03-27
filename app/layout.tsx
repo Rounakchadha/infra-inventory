@@ -1,13 +1,9 @@
-// Root layout — wraps all pages with shared fonts and global styles
-
 import type { Metadata } from 'next'
-import { Inter, Geist } from 'next/font/google'
+import { Manrope } from 'next/font/google'
 import './globals.css'
 import { cn } from "@/lib/utils";
 
-const geist = Geist({subsets:['latin'],variable:'--font-sans'});
-
-const inter = Inter({ subsets: ['latin'] })
+const manrope = Manrope({ subsets: ['latin'], variable: '--font-sans' })
 
 export const metadata: Metadata = {
   title: 'Lighting Inventory',
@@ -20,8 +16,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${inter.className} bg-gray-50 min-h-screen`}>
+    <html lang="en" className={cn("font-sans", manrope.variable)}>
+      <body className={`${manrope.className} min-h-screen antialiased`}>
         {children}
       </body>
     </html>
